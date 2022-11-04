@@ -8,7 +8,11 @@ import Edit from './Edit';
 import { employeesData } from '../../data';
 
 function Dashboard({ itemsPerPage }) {
-    const [employees, setEmployees] = useState(employeesData);
+
+    //项目启动加载的时候，从本地存储获取数据
+
+
+    const [employees, setEmployees] = useState([]);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);

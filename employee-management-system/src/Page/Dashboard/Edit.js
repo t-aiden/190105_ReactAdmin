@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2';
+import { employeesData } from '../../data';
 
 function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
 
@@ -45,13 +46,23 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
             date
         };
 
+        //修改当前分页数据中的数据
         for (let i = 0; i < employees.length; i++) {
             if (employees[i].id === id) {
-                employees.splice(i, 1, employee);
+                employees.splice(i, 1, employee);//替换到队列当中的对象
                 break;
             }
         }
 
+        //修改内存中的总备份数据
+        for (let i = 0; i < employeesData.length; i++) {
+            if (employeesData[i].id === id) {
+                employeesData.splice(i, 1, employee);//替换到队列当中的对象
+                break;
+            }
+        }
+
+        
         setEmployees(employees);
         setIsEditing(false);
 
