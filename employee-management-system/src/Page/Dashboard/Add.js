@@ -37,7 +37,8 @@ function Add({ employees, setEmployees, setIsAdding }) {
             })
         } 
 
-        const id = employees.length + 1;
+        const employeesData = JSON.parse(localStorage.getItem('employees')) || [];
+        const id = employeesData.length + 1;
         const newEmployee = {
             id,
             firstName,
@@ -47,8 +48,16 @@ function Add({ employees, setEmployees, setIsAdding }) {
             telephone,
             date
         }
+        // add to memory array
         employees.push(newEmployee);
+        // update temp employees array 
         setEmployees(employees);
+
+        // 
+        
+        employeesData.push(newEmployee)
+        localStorage.setItem('employees', JSON.stringify(employeesData));
+
         setIsAdding(false);
 
         Swal.fire({

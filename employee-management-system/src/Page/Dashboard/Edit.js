@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2';
-import { employeesData } from '../../data';
 
 function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
 
@@ -54,6 +53,7 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
             }
         }
 
+        const employeesData = JSON.parse(localStorage.getItem('employees')) || [];
         //修改内存中的总备份数据
         for (let i = 0; i < employeesData.length; i++) {
             if (employeesData[i].id === id) {
@@ -61,6 +61,8 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
                 break;
             }
         }
+        //overide old array
+        localStorage.setItem('employees', JSON.stringify(employeesData));
 
         
         setEmployees(employees);

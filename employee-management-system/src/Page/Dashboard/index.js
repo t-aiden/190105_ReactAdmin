@@ -5,26 +5,36 @@ import Header from './Header';
 import List from './List';
 import Add from './Add';
 import Edit from './Edit';
-import { employeesData } from '../../data';
+
 
 function Dashboard({ itemsPerPage }) {
 
     //项目启动加载的时候，从本地存储获取数据
-
+    const employeesData = JSON.parse(localStorage.getItem('employees')) || [];
+    console.log("1111=====>>>> " + employeesData)
 
     const [employees, setEmployees] = useState([]);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+    const [isDelete, setIsDelete] = useState(false);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
-        setEmployees(employeesData.slice(itemOffset, endOffset));
+
+
+        console.log("update before=====>>>> " + employees)
+        const temp = employeesData.slice(itemOffset, endOffset)
+        console.log("update temp=====>>>> " + temp)
+        setEmployees(temp);
+
+        console.log("update after=====>>>> " + employees)
+
         setPageCount(Math.ceil(employeesData.length / itemsPerPage));
         
-    }, [itemOffset, itemsPerPage]);
+    }, [itemOffset, itemsPerPage,isAdding,isDelete]);
 
     
     const handlePageClick = (event) => {
@@ -61,7 +71,20 @@ function Dashboard({ itemsPerPage }) {
                     timer: 1500,
                 });
 
-                setEmployees(employees.filter(employee => employee.id !== id));
+
+             
+                 //修改内存中的总备份数据
+                for (let i = 0; i < employeesData.length; i++) {
+                    if (employeesData[i].id === id) {
+                        employeesData.splice(i, 1);//delete
+                        break;
+                    }
+                }
+                //overide old array
+                localStorage.setItem('employees', JSON.stringify(employeesData))
+
+                
+                setIsDelete(!isDelete);
             }
         });
     }
