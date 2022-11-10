@@ -5,12 +5,12 @@ import Header from './Header';
 import List from './List';
 import Add from './Add';
 import Edit from './Edit';
-
+import { employeesData } from '../../data';
 
 function Dashboard({ itemsPerPage }) {
 
     //项目启动加载的时候，从本地存储获取数据
-    const employeesData = JSON.parse(localStorage.getItem('employees')) || [];
+    //const employeesData = JSON.parse(localStorage.getItem('employees')) || [];
     console.log("1111=====>>>> " + employeesData)
 
     const [employees, setEmployees] = useState([]);
