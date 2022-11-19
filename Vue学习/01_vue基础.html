@@ -1,0 +1,55 @@
+<! DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title> Vue 基础 </title>
+</head>
+<!-- 
+    ----- el: 挂载点 -----
+    Vue实例的作用域范围是什么？
+        -- Vue会管理 el 选项命中的元素及其内部的后代元素
+    
+    是否可以使用其它选择器？
+       -- 可是使用其它的选择器，但是建议使用 ID 选择器
+    
+    是否可以设置其他的dom元素？
+       -- 可以使用其他的双标签，不能使用 HTML 和 BODY
+
+    --------------------------------
+    --------------------------------
+
+    ------data: 数据对象 -----
+    Vue中用到的数据定义在data中
+    data中可以写复杂类型的数据
+    渲染复杂数据类型时，遵守 js 的语法即可
+
+
+
+ -->
+<body>
+    <div id="app">
+        {{message}}
+        <h2>{{school.name}} {{school.mobile}}</h2>
+        <ul>
+            <li>{{campus[0]}}</li>
+            <li>{{campus[3]}}</li>
+        </ul>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app", // el 的作用是 设置挂载点
+            data:{
+                message:"你好,aiden!",
+                school:{
+                    name:"aiden",
+                    mobile:"001-110-118"
+                },
+                campus:["北京校区","上海校区","广州校区","深圳校区"]
+            }
+            
+        })
+    </script>
+</body>
+</html>   

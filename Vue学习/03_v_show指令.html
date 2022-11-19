@@ -1,0 +1,37 @@
+<! DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title> V-show 指令 </title>
+
+    <!--   总结
+        v-show指令的作用是：根据 true/false 切换元素的显示状态
+
+        原理是修改元素的 display ，实现显示隐藏
+
+        指令后面的内容，最终都会解析为 布尔值
+
+        值为 true 元素显示，值为 false 元素隐藏
+
+
+     -->
+</head>
+
+<body>
+    <div id="app">
+       <img v-bind:src= "imgSrc" alt="">
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"./fa"
+            }
+            
+            
+        })
+    </script>
+</body>
+</html>   

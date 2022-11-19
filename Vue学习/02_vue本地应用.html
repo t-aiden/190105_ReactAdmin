@@ -1,0 +1,190 @@
+<! DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title> Vue 基础 </title>
+</head>
+<!-- 
+   ---- 1.内容绑定，事件绑定   ---------
+   v-test  
+         （设置标签的文本值（textContent）），
+            默认写法会 替换全部内容，
+            使用差值表达式{{}} 可以替换指定的内容
+            内部仅支持表达式
+
+
+   v-html
+         （设置标签的 innerHTML）
+          v-html 指令的作用是:设置元素的 innerHTML
+          内容中有 html结构会被解析为 标签
+          v-text指令无论内容是什么，只会解析为文本
+
+
+   v-on基础
+          v-on:click = "方法"
+          v-on:monseenter = "方法"
+          v-on:dblclick = "方法"
+
+          v-on:   和  @   功能一样
+          @dblclick = "方法"
+          
+          v-on指令的作用是：为元素绑定事件
+          事件名不需要写on
+          指令可以简写为@
+          绑定的方法定义在methods属性中
+
+
+   -----2. 显示切换，属性绑定 -----------
+   v-show
+   v-if
+   v-bind
+   -----3.列表循环，表单元素绑定 -----------
+   v-for
+   v-on补充
+   v-model
+ -->
+
+
+
+ <!-----------------  总结
+
+    创建Vue示例时:el(挂载点)，data(数据)，methods(方法)
+
+    v-on指令的作用是绑定事件，简写为@
+
+    方法中通过this，关键字获取data中的数据
+
+    v-test指令的作用是:设置元素的文本值，简写为  {{  }}
+
+
+
+-->
+<body>
+
+    <!--     v-text  
+
+
+        <div id="app">
+            {{message}}
+            <h2 v-text="message + '!' ">深圳</h2>
+            <h2 v-text="info + '!'">深圳</h2>
+            <h2>{{message + '!'}}深圳</h2>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el:"#app", // el 的作用是 设置挂载点
+                data:{
+                    message:"你好,aiden!",
+                    info:"前端与移动教研部"
+                }
+            })
+        </script> 
+    -->
+
+
+
+
+
+    <!--   v-html
+
+
+        <div id="app">
+
+        <p v-html="content"> </p>
+        <p v-text="content"> </p>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el:"#app", 
+                data:{
+                content:"<a href='http://www.baidu.com'> aiden程序员 </a>"
+                }
+                
+            })
+        </script>
+
+        
+    -->
+
+    <!--    v-on
+
+        <div id="app">
+        <input type="button" value="v-on指令" v-on:click="doIt">
+        <input type="button" value="v-on简写" @click="doIt">
+        <input type="button" value="双击事件" @dblclick="doIt">
+        <h2 @click="changeFood">{{food}}</h2>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el:"#app", 
+                data:{
+                        food:"xilanhuachaodan"
+                    },
+                methods:{
+                    doIt:function(){
+                        alert("做it");
+                    },
+                    changeFood:function(){
+                    // console.log(this.food);
+                    this.food += "好好吃!";
+                    }
+                }
+                
+            })
+     -->
+
+
+
+    <!--    本地应用计数器   -->
+    <div id="app">
+        <div class="input-num">
+            <button @click="sub">
+                -
+            </button>
+            <span>
+                {{num}}
+
+            </span>
+            <button @click="add">
+                +
+            </button>
+
+        </div>
+       
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app", 
+            data:{
+                    num:1,
+                },
+            methods:{
+                add:function(){
+                    if(this.num<10){
+                        this.num ++;
+                    }else{
+                        alert("别点了，最大了");
+                    }
+                },
+                sub:function(){
+                    if(this.num > 0){
+                        this.num --;
+                    }else{
+                        alert("别点了，最小了");
+                    }
+                }
+            }
+    })
+    
+
+
+    </script>
+</body>
+</html>   

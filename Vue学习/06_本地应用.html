@@ -1,0 +1,61 @@
+<! DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title> 本地应用 </title>
+
+   
+    <!--  总结
+
+        列表数据使用数组保存
+
+        v-bind 指令可以设置元素属性，比如 src
+
+        v-show 和 v-if都可以切换元素的显示状态，频繁切换用 v-show
+
+
+
+     -->
+</head>
+
+<body>
+    <div id="mask">
+        <div class="enter">
+            <img :src="imgArr[index]" alt="">
+            <a href="javascript:void(0)" v-show="index !=0" @click="prev" class="left">
+                <img src="./left.jpeg" alt="">
+            </a>
+            <a href="javascript:void(0)" v-show="index < imgArr.length - 1" @click="next" class="right">
+                <img src="./right.jpeg" alt="">
+            </a>
+
+        </div>
+     
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#mask",
+            data:{
+                imgArr:[
+                    "./favicon.ico",
+                    "02.jpeg",
+                    "03.jpeg",
+                    "04.jpeg"
+                ],
+                index:0
+            },
+            methods:{
+                prev:function(){
+                    this.index--;
+                },
+                next:function(){
+                    this.index++;
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>   
