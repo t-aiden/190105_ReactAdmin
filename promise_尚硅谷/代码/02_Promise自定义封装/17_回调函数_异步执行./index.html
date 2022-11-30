@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise自定义封装</title>
+    <script src="./promise.js"></script>
+    <!-- 
+       
+     -->
+</head>
+<body>
+    <script >
+        let p1 = new Promise((resolve,reject)=>{
+                reject('ok');
+                console.log(111);
+
+        })
+        
+        p1.then(value =>{
+           //  console.log(value);
+           console.log(2222);
+        },reject =>{
+            console.log(4444);
+
+
+        });
+         console.log(333);
+
+    </script>
+</body>
+
+</html>

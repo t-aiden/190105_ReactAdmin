@@ -1,0 +1,67 @@
+<! DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title> axios 基本使用  </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+
+    <!--  总结
+
+        1.axios 回调函数中的 this 已经改变，无法访问到data 中的数据，
+          需要把this保存起来，回调函数中直接使用保存的 this即可，
+          和本地应用的最大区别就是改变了 数据来源
+                  
+    -->
+
+    
+</head>
+              
+<body>
+    <div id="app">
+        <input type="button" value="获取笑话" @click="getJoke">
+        <p> {{joke}}</p>
+    </div>
+  
+   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+   <script>
+       
+       /*
+            接口:随机获取一条笑话
+            请求地址:https://autumnfish.cn/api/joke
+            请求方法:get
+            请求参数:无
+            响应内容:随机笑话
+        */
+       var app =  new Vue({
+           el:"#app",
+           data:{
+               joke:"很好笑的笑话",
+            
+           },
+           methods:{
+               getJoke:function(){
+                   var that = this;  // this 是会变的，所以需要有一个容器，也就是这里的 that 
+                   axios.get("https://autumnfish.cn/api/joke").then(function(response){
+                       console.log(response.data);
+                       that.joke = response.data;
+
+                   },function(err){})
+               }
+           }
+       })
+        
+         
+
+       
+
+
+
+   </script>
+  
+    
+</body>
+</html>   

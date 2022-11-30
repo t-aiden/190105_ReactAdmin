@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise.reject方法  </title>
+
+    <!-- 
+        Promise.reject 方法：(reason)=>{}  
+        (1) reason: 失败的原因
+        说明： 返回一个失败的 promise 对象
+     -->
+</head>
+<body>
+   
+    <script >
+        let p1 = Promise.reject(5200);
+        console.log(p1);
+
+
+        let p2 = Promise.reject(new Promise((resolve,reject)=>{
+            resolve('ok');
+        }))
+        console.log(p2);
+
+      // reject 返回的永远是失败的对象，传入的值就是失败的原因
+ 
+    </script>
+</body>
+
+</html>

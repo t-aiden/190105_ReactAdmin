@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise关键问题 - 能否执行多个回调  </title>
+
+    <!-- 
+         
+        一个 promise指定多个成功/失败回调函数，都会调用吗？
+           --- 当状态改变之后，对应的回调都会执行
+
+     -->
+</head>
+<body>
+   
+    <script >
+
+        let p = new Promise((resolve,reject)=>{
+            resolve('OK');
+        });
+        
+        // 指定回调 - 1
+        p.then(value =>{
+            console.log(value);
+
+        });
+
+        // 指定回调 -2
+        p.then(value=>{
+            alert(value);
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise自定义封装</title>
+    <script src="./promise.js"></script>
+    <!-- 
+       
+     -->
+</head>
+<body>
+   
+    <script >
+
+       let p = new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+                //reject('ok');
+                resolve('OK');  //作用： 改变状态和结果值
+           },1000)
+                
+       });
+
+       // 值传递
+       p.then()
+       .then(value =>{
+           console.log(222);
+       }).then(value => {
+           console.log(3333);
+       }).catch(reason => {
+           console.warn(reason);
+       })
+
+    </script>
+</body>
+
+</html>

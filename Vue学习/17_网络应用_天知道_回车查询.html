@@ -1,0 +1,75 @@
+<! DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title> axios 基本使用  </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+
+    <!--  总结
+        回车查询  ： 1. 按下回车（v-on .enter）
+                   2. 查询数据 （axios接口 v-model）
+                   3.  渲染数据（v-for 数组 that）
+        
+        应用的逻辑代码建议和页面分离，使用单独的 js 文件编写
+
+        axios 回调函数中 this 指向改变了，需要额外的保存一份
+
+        服务器返回的数据比较复杂时，获取的时候需要注意层级结构
+        
+    -->
+
+    
+</head>
+              
+<body>
+    <div class="wrap" id="app">
+        <div class="search_form" > 
+            <div class="logo"><img src="./vue_material-master/demo-天知道/img/logo.png" alt="logo"></div>
+            <div class="form_group">
+                <input type="text" v-model="city" class="input_txt" @keyup.enter="searchWeather" placeholder="请输入查询的天气">
+                <button class="input_sub">
+                    搜索
+                </button>
+            </div>
+            <div class="hotkey">
+                <a href="javascript:;">北京</a>
+                <a href="javascript:;">上海</a>
+                <a href="javascript:;">广州</a>
+                <a href="javascript:;">深圳</a>
+
+
+            </div>
+        </div>
+        <ul class="weather_list">
+            <li v-for="item in weatherList"> 
+                <div class="info-type"><span class="icofont">{{item.type }}</span></div>
+                <div class="info_temp">
+                    <b>{{ item.low }}</b>
+                     ~
+                    <b>{{ item.high }}</b>
+
+                </div>
+                <div class="info_data"><span>{{item.data}}</span> </div>
+            </li>
+
+        </ul>
+    </div>
+  
+   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 自己的js -->
+    <script src="./main.js"></script>
+   
+        
+         
+
+       
+
+
+
+  
+    
+</body>
+</html>   

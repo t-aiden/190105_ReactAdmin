@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise关键问题 - 串联多个任务  </title>
+
+    <!-- 
+        promise 如何串联多个操作任务？
+         （1） promise的 then()返回一个新的 promise，可以开成 then() 的链式调用
+         （2） 通过 then 的链式调用串联多个同步/异步任务
+     -->
+</head>
+<body>
+   
+    <script >
+
+        let p = new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+               resolve('ok');
+
+           },1000)
+
+        });
+
+        // 执行 then 方法
+        p.then(value=>{
+            return new Promise((resolve,reject)=>{
+               resolve('success');    
+
+           });
+
+        }).then(value =>{
+            console.log(value);
+        }).then(value=>{
+            console.log(value);  //  then的返回结果是一个 promise对象，这个promise的状态是由  指定函数的返回值决定
+        })
+        
+    </script>
+</body>
+
+</html>

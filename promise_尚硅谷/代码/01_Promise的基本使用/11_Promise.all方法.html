@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise.all 方法  </title>
+
+    <!-- 
+        Promise.all 方法：(promises)=>{}  
+        (1) promises：包含n个 promise的数组
+        说明： 返回一个新的 promise 对象，只有所有的 promise都成功才成功，只要有一个失败了就直接失败
+     -->
+</head>
+<body>
+   
+    <script >
+
+        let p1 = Promise.reject(new Promise((resolve,reject)=>{
+            resolve('ok');
+        }))
+        // let p2 = Promise.reject('Error');
+        let p2 = Promise.resolve('success');
+        let p3 = Promise.resolve('oh yeah');
+        
+        const result = Promise.all([p1,p2,p3]);
+        console.log(result);// 状态为成功。当有一个对象是失败时，状态为失败
+
+
+
+ 
+    </script>
+</body>
+
+</html>

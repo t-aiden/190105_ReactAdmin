@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise关键问题 - promise对象状态改变方式  </title>
+
+    <!-- 
+        Promise.race 方法：(promises)=>{}  
+        (1) promises：包含n个 promise的数组
+        说明： 返回一个新的 promise 对象，第一个完成的 promise的结果状态就是最终的结果状态
+
+     -->
+</head>
+<body>
+   
+    <script >
+
+        let p = new Promise((resolve,reject)=>{
+            // 1. resolve 函数
+            resolve('ok');  // pending => fulfilled(resolved)
+
+            // 2. reject 函数
+            //reject('error'); // pending => rejected
+
+            // 3. 抛出错误
+            //throw '出问题了';
+        });
+        
+         console.log(p);
+
+ 
+    </script>
+</body>
+
+</html>

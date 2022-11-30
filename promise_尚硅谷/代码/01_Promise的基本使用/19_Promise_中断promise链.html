@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise关键问题 - 异常穿透 </title>
+
+    <!-- 
+        中断 promise链？
+        （1） 当使用 promise 的 then 链式调用时，在中间中断，不再调用后面的回调函数。有且只有一个方式  return new Promise(()=>{});
+        （2） 办法：在回调函数中返回 一个 pending状态的 promise 对象
+     -->
+</head>
+<body>
+   
+    <script >
+
+        let p = new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+                resolve('ok');
+                // reject('Err');
+           },1000);
+
+        });
+
+        // 执行 then 方法
+        p.then(value=>{
+           console.log(111);
+           // 有且只有一个方式
+           return new Promise(()=>{});
+        }).then(value =>{
+            console.log(2222);
+        }).then(value =>{
+            console.log(3333);
+        }).catch(reason =>{
+            console.warn(reason);
+        });        
+        
+    </script>
+</body>
+
+</html>

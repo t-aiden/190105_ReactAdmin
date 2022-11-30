@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Promise自定义封装</title>
+    <script src="./promise.js"></script>
+    <!-- 
+       
+     -->
+</head>
+<body>
+   
+    <script >
+
+       let p = new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+                reject('No');
+                //resolve('OK');  //作用： 改变状态和结果值
+           })
+                
+       });
+
+       const res = p.then(value =>{
+           console.log(value);
+       },reason=>{
+           console.warn(reason);
+
+       });
+        console.log(res);
+
+    </script>
+</body>
+
+</html>
