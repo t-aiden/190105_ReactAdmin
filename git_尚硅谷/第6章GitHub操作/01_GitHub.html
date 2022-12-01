@@ -1,0 +1,81 @@
+概述<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> gitHub  </title>
+</head>
+
+<body>
+    <script>
+     /*
+       6.1 创建远程库
+
+
+       6.2  远程库操作
+
+            6.2.1  创建远程仓库别名
+
+                    $　git remote -v                       --  查看当前所有远程地址别名
+                    $　git remote add  别名 远程地址         --  创建别名
+
+
+            6.2.2   推送本地分支到远程仓库
+                    
+                    $　git push 别名 本地分支
+
+                    拉取远程库到本地库
+
+                    $　git pull 别名 本地分支
+            
+            6.2.3   克隆远程仓库到本地
+                
+                    $ git clone  远程地址     // 例如   $ git clone https://github.com
+                                             // 这个地址为远程仓库地址，克隆结果：初始化本地仓库
+                    小结： clone 会做如下的操作。1）拉取代码  2）初始化本地仓库   3）创建别名（别名默认 origin）                        
+
+          
+
+        6.3.1      团队内协作
+
+                    添加陌生账号到本地库
+                        在库中点击Settings ==> 左边 Manage access   ==>  下边 Invite a collaborator ==> 输入对方账号
+
+                    
+        6.3.2         跨团队协作 
+                     1） 拿到对方远程库的链接 或，在github中搜索 对象账号/库别名  
+                         ==> 点击右上角 Fork。把对方的项目 叉到自己的账号中
+
+                     2） 把远程库的代码 clone 到本地库进行修改
+
+                     3） 提交修改   commit changes
+
+                     4） 在自己的账号 点击左上角【 pull requests 】
+                         ==>   New pull request
+                         ==>   Create pull request
+                         ==>   对方在自己的账号 点击左上角【 pull requests 】
+                         ==>  审核代码后
+                         ==>  点击 Merge pull request  就可以拿到合并后的代码
+
+
+        6.4       SSH 免密登陆
+            
+                   1）首先需要登陆 ssh keys  
+                      -- 在自己的 家（home）目录下  用户（user）/asus 下生成   .ssh文件
+                      -- $ ssh-keygen -t rsa -c 账号
+                      -- 敲3次回车 生成 .ssh文件
+                      -- 在.ssh文件中有 公钥和私钥
+                      -- 查看公钥   cat id_rsa
+                      -- 复制 公钥 给对方
+                      -- 对方添加到自己账号中的 settings ==>   SSH and GPG keys ==>  添加公钥 ssh keys
+
+                     
+
+
+     */   
+
+
+    </script>
+</body>
+
+</html>

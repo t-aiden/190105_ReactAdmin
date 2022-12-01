@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> git 常用命令 </title>
+</head>
+
+<body>
+    <script>
+     /* 
+    3.1    $git config --global user.name 用户名       设置用户签名
+           $git config --global user.email 邮箱        设置用户签名
+
+            设置用户签名是区分不同的操作者身份。这里的设置用户签名和将来的 登陆 GitHub（或其他的代码托管中心）
+            的账号没有任何关系
+
+    3.2     初始化本地库
+            1） 基本语法
+            git init      //初始化作用--- 使用git管理目录，首先要获得git的管理权
+    
+    3.3     查看本地库状态 
+       
+            ---  在 git 客户端   linux命令同样适用
+
+            3.3.1   首次查看  -- 工作区没有任何文件
+                    命令      $git status
+
+            3.3.2   新增文件 （例如； hello.txt）
+
+                    命令 vim hello.txt   -- 进入插入模式插入内容
+                                         -- 在 vim 中   yy是复制1整行命令  ， p 是粘贴命令 
+                    wq 命令    保存文件 hello.txt
+
+                    ll 命令    查看当前目录下文件目录
+
+                    cat hello.txt    查看文件内容
+
+    
+     3.4      添加文件到  【【暂存区】】
+
+              3.4.1  命令
+                $  git add hello.txt    -- 将文件添加到暂存区d
+
+                $  git rm -cached<file>      --仅仅删除 暂存区的文件，在工作区还是有的
+
+    3.5      提交到 本地库
+             
+             3.5.1  将暂存区的 文件提交到 本地库
+                   $  git commit -m "此处添加版本日志信息" hello.txt
+
+             3.5.2  查看版本信息
+                  $ git reflog    
+
+                  $ git log    -- 查看详细日志信息
+
+    3.6     修改文件 （hello.txt）
+              $ vim hello.txt
+
+              $ git status    -- 查看状态 ， midified：hello.txt ，表示文件被修改
+
+              $ git hello.txt    -- hello.txt 再次被添加到暂存区
+
+               $ git commit -m "second commit"  hello.txt     -- 第2次添加到本地库
+
+    3.7     历史版本
+            3.7.1  查看历史版本
+                 
+                $ git reflog     -- 查看版本信息
+
+                $ git log        -- 查看版本 详细信息
+          
+            3.7.2  穿越版本
+
+                $ git reflog     -- 查看版本信息，拿到版本号，例如 5770506
+                
+                $ git reset --hard 5770506
+   
+                --查看工作区的文件 的版本号
+                 路径：.git/refs/heads/master
+                 
+
+
+
+        
+     */
+
+
+    </script>
+</body>
+
+</html>
